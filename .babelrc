@@ -1,0 +1,11 @@
+{
+    "presets": [
+        "@babel/preset-env",//处理es的语法
+        "@babel/preset-react"//处理react的语法
+       
+
+    ],
+    "plugins": [
+        "@babel/transform-runtime"
+    ]
+}
