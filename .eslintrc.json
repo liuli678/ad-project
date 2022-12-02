@@ -1,0 +1,17 @@
+ // Eslint配置文件
+{
+  "env":{
+    "browse":true
+  },
+   "extends":[
+    "airbnb"
+   ],
+   "rules":{
+    // 缩进配置
+    "indent":["error",4],
+    "react/jsx-indent":["error",4],
+    // 屏蔽到包类组件的错误
+     "react/prefer-stateless-function":"off"
+   }
+
+}
