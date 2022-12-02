@@ -11,23 +11,28 @@ const webpackBaseConfig = {
     },
     resolve: {
         // 引入的扩展名信息
-        extensions: ['.js', '.jsx'],
+        extensions: ['.js', '.jsx','.tsx'],
 
     },
     module: {
         rules: [
+            
             // js  jsx  匹配到js，jsx结尾的文件使用 babel-loader来处理
             {
                 test: /\.js[x]/,
                 use: 'babel-loader',
-                exclude: /node_modules/ 
+                exclude: /node_modules/
             },
             {
-                test: /\.(sc|c)ss/, 
-                use: ['style-loader', 'css-loader','sass-loader'],
+                test: /\.ts[x]/,
+                use: 'ts-loader',
+            },
+            {
+                test: /\.(sc|c)ss/,
+                use: ['style-loader', 'css-loader', 'sass-loader'],
             },
         ]
     }
 
-}
+};
 module.exports = webpackBaseConfig;

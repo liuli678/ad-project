@@ -6,12 +6,22 @@
    "extends":[
     "airbnb"
    ],
+   "parser":"@typescript-eslint/parser",
+   "plugin":[
+     "react",
+     "@typescript-eslint"
+ 
+   ],
    "rules":{
     // 缩进配置
     "indent":["error",4],
     "react/jsx-indent":["error",4],
     // 屏蔽到包类组件的错误
-     "react/prefer-stateless-function":"off"
+     "react/prefer-stateless-function":"off",
+     "react/jsx-filename-extension":["error",{"extensions":[".js",".jsx",".ts",".tsx"]}],
+     "no-unused-vars":"warn",
+     "no-use-before-define":"off"
+
    }
 
 }
