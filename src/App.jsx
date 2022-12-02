@@ -5,7 +5,7 @@ class App extends Component{
         return (
             <div className="box">
                 hello,react
-                <span> 1是否热武器</span>
+                <span> 使用git操作规范</span>
             </div>
         )
     }
