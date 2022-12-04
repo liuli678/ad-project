@@ -3,6 +3,7 @@ const path = require('path');
 const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpackConfigBase = require('./webpack.base.config');
+const MiniCssExtractPlugin=require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const webpackConfigProd = {
@@ -12,6 +13,9 @@ const webpackConfigProd = {
             protectWebpackAssets: true,
             
         }),
+        new MiniCssExtractPlugin({
+            filename:'[name].[fullhase:4].css'
+        }),
         new HtmlWebpackPlugin({
              //注入的位置
              inject: 'body',
@@ -20,8 +24,9 @@ const webpackConfigProd = {
              filename: 'index.html',
              // 模板文件
              template: path.join(__dirname, '../src/index.html')
-        })
-    ]
+        }),
+       
+    ],
     
 }
 module.exports = merge(webpackConfigBase, webpackConfigProd);

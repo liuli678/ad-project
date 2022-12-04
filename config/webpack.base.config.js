@@ -1,4 +1,8 @@
 const path = require('path');
+// 引入css打包的插件
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// 需要判断是开发环境还是生产环境
+const devMode=process.env.NODE_ENV!=="production"
 
 const webpackBaseConfig = {
     // 入口文件
@@ -34,8 +38,15 @@ const webpackBaseConfig = {
             },
             {
                 test: /\.(sc|c)ss/,
-                use: ['style-loader', 'css-loader', 'sass-loader'],
+                use: [
+                    devMode? 'style-loader':MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'sass-loader',
+                ],
             },
+            {
+
+            }
         ]
     }
 

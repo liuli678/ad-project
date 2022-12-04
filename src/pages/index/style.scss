@@ -1,0 +1,13 @@
+.index-page{
+    position: relative;
+    .middle-box{
+        width: 500px;
+        height: 380px;
+        background-color: skyblue;
+        position: absolute;
+        top: 50%;
+        left:50%;
+        margin-top:-150px;
+        margin-left: -250px;
+    }
+}

@@ -1,13 +1,17 @@
 import React, { Component } from "react";
-
-interface Props{}
+import { Button } from 'antd';
+import './style.scss'
+interface Props { }
 
 class IndexPage extends Component<Props> {
     render() {
         return (
-            <div>
-                hello,react.
-                <span>首页</span>
+            <div className="index-page">
+                <div className="middle-box">
+                    hello,react.
+                    <span>首页</span>
+                </div>
+
             </div>
 
         )
