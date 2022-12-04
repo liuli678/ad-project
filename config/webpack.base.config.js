@@ -11,7 +11,12 @@ const webpackBaseConfig = {
     },
     resolve: {
         // 引入的扩展名信息
-        extensions: ['.js', '.jsx','.tsx'],
+        extensions: ['.js', '.jsx', '.tsx'],
+        // 配置路径的别名  
+        alias: {
+            // pages的页面可以加一些前缀
+            pages: path.join(__dirname,'../src/pages')
+        }
 
     },
     module: {

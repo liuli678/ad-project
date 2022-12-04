@@ -20,8 +20,21 @@
      "react/prefer-stateless-function":"off",
      "react/jsx-filename-extension":["error",{"extensions":[".js",".jsx",".ts",".tsx"]}],
      "no-unused-vars":"warn",
-     "no-use-before-define":"off"
+     "no-use-before-define":"off",
+     "import/no-unresolved":["error",{"ignore":[".png$",".webp$",".jpeg$"]}],
+     "import/extensions":["error","never",{"svg":"always"}]
 
-   }
+   },
+//    针对import/resolve 相关配置
+    "settings":{
+        "import/resolve":{
+            "alias":{
+                "map":[
+                    ["pages","./src/pages"]
+                ],
+                "extensions":[".ts",".tsx",".js",".jsx",".json",".d.ts"]
+            }
+        }
+    }
 
 }
