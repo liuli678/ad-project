@@ -12,7 +12,7 @@ interface Props extends RouteComponentProps<{}> {
 
 class App extends Component<Props>{
     // 匹配到/ 根路径时重定向
-   handleRoute = () => {
+    handleRoute = () => {
         const { location, history } = this.props;
         const pathname = location;
         console.log('history', history)
@@ -29,14 +29,9 @@ class App extends Component<Props>{
         console.log("测试", this.props);
         const { children } = this.props;
         return (
-            <>
-                {
-                    this.handleRoute() ? children : 'other'
-                }
-            </>
-
-
-
+            <div>
+                { this.handleRoute() ? children : 'other' }
+            </div>
         )
     }
 }

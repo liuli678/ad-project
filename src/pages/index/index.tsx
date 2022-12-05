@@ -24,13 +24,23 @@ class IndexPage extends Component<Props> {
     render() {
         return (
             <div className="index-page">
-                <div className="middle-box">
-                    hello,react.
-                    <span>首页</span>
-                    <Button type="primary">按钮</Button>
+                <div className="header-box">
+                    header
                 </div>
-                <div>
-                    {/* <DatePicker onChange={this.handleDateChange} /> */}
+                <div className="content-box">
+                    <div className="left-content">
+                        <div className="chart-area">chart</div>
+                        <div className="promotion-card-area">promotion-card</div>
+                        <div className="product-card-area">product-car</div>
+                    </div>
+                    <div className="right-content">
+                        <div className="account-area">chart</div>
+                        <div className="index-banner-area">promotion-card</div>
+                        <div className="product-news-area">product-car</div>
+                    </div>
+                </div>
+                <div className="footer-box">
+                    footer
                 </div>
             </div>
 

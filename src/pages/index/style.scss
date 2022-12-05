@@ -1,13 +1,60 @@
 .index-page{
-    position: relative;
-    .middle-box{
-        width: 500px;
-        height: 380px;
-        background-color: skyblue;
-        position: absolute;
-        top: 50%;
-        left:50%;
-        margin-top:-150px;
-        margin-left: -250px;
+    .header-box{
+      width: 100%;
+      height: 100%;
+      border: 1px solid red;
     }
+    .content-box{
+    width: 1220px;
+    margin: 0 auto;
+    // height: 500px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    .left-content{
+          width: 909px;
+          .chart-area{
+            height: 437px;
+            border: 1px solid skyblue;
+          }
+          .promotion-card-area{
+            height: 100px;
+            margin-top: 22px;
+            border: 1px solid skyblue;
+          }
+          .product-card-area{
+            height: 345px;
+            border: 1px solid skyblue;
+          }
+
+    }
+    .right-content{
+        width: 288px;
+        
+        .account-area{
+            height: 267px;
+            border: 1px solid skyblue;
+
+        }
+        .index-banner-area{
+            height:148px;
+            margin-top: 22px;
+            border: 1px solid skyblue;
+
+        }
+        .product-news-area{
+            height:470px;
+            border: 1px solid skyblue;
+        }
+
+    }
+    }
+    .footer-box{
+        width: 100%;
+        height: 100%;
+        margin-top: 20px;
+        border:1px solid blue;
+    }
+    
 }
