@@ -19,7 +19,7 @@ class App extends Component<Props>{
 
         // 自动去首页
         if (pathname === '/') {
-            history.push('index')
+            history.push('/index')
             return false;
         }
         return true;

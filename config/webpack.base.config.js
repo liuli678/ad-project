@@ -15,11 +15,12 @@ const webpackBaseConfig = {
     },
     resolve: {
         // 引入的扩展名信息
-        extensions: ['.js', '.jsx', '.tsx'],
+        extensions: ['.js', '.jsx', '.tsx','.ts'],
         // 配置路径的别名  
         alias: {
             // pages的页面可以加一些前缀
-            pages: path.join(__dirname,'../src/pages')
+            pages: path.join(__dirname, '../src/pages'),
+            '@utils':path.join(__dirname,'../src/utils')
         }
 
     },
@@ -28,13 +29,20 @@ const webpackBaseConfig = {
             
             // js  jsx  匹配到js，jsx结尾的文件使用 babel-loader来处理
             {
-                test: /\.js[x]/,
+                test: /\.jsx?$/,
                 use: 'babel-loader',
                 exclude: /node_modules/
             },
             {
-                test: /\.ts[x]/,
-                use: 'ts-loader',
+                test: /\.tsx?$/,
+                use: 'ts-loader'
+                // 性能提升配置
+                // use: {
+                //     loader: 'ts-loader',
+                //     options: {
+                //         transpileOnly:true
+                //     }
+                // },
             },
             {
                 test: /\.(sc|c)ss/,

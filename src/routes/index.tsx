@@ -1,7 +1,7 @@
 // 路由配置文件
 import React, { Component } from "react";
 import {
-    HashRouter as Router, withRouter,  Switch, BrowserRouter
+    HashRouter as Router, withRouter, BrowserRouter
 } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
 
@@ -33,17 +33,14 @@ class AppRoute extends Component {
     render() {
         return (
             <BrowserRouter>
-                <Switch>
-                    <Router>
-                        <AppWarp>
+                <Router>
+                    <AppWarp>
 
-                            {
-                                renderRoutes(allRoutes.map((item) => ({ ...item, key: item.path })))
-                            }
-
-                        </AppWarp>
-                    </Router>
-                </Switch>
+                        {
+                            renderRoutes(allRoutes.map((item) => ({ ...item, key: item.path })))
+                        }
+                    </AppWarp>
+                </Router>
             </BrowserRouter>
 
 
