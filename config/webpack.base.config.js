@@ -20,7 +20,8 @@ const webpackBaseConfig = {
         alias: {
             // pages的页面可以加一些前缀
             pages: path.join(__dirname, '../src/pages'),
-            '@utils':path.join(__dirname,'../src/utils')
+            '@utils': path.join(__dirname, '../src/utils'),
+            '@components':path.join(__dirname,'../src/components')
         }
 
     },

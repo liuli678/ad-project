@@ -1,0 +1,28 @@
+.header-content-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+
+    .left {
+        display: flex;
+        align-items: center;
+
+        .logo {
+          background:url('https://www.imooc.com/static/img/index/logo2020.png');
+          width: 91px;
+          height: 40px;
+          background-size:100%;
+          margin-right: 16px;
+        }
+        .menu{
+           width: 640px;
+           padding-top: 4px;
+           display: flex;
+           align-items: center;
+           text-align: right;
+        }
+    }
+
+    .user-info {}
+}

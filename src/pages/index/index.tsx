@@ -3,6 +3,7 @@ import axios from 'axios';
 import moment from 'moment';
 import dayjs from 'dayjs'
 import { Button, DatePicker } from 'antd';
+import  TheHeader  from "../../components/TheHeader/index";
 import './style.scss'
 interface Props { }
 
@@ -25,7 +26,7 @@ class IndexPage extends Component<Props> {
         return (
             <div className="index-page">
                 <div className="header-box">
-                    header
+                    <TheHeader></TheHeader>
                 </div>
                 <div className="content-box">
                     <div className="left-content">

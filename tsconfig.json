@@ -35,7 +35,10 @@
             "src/pages/*",          
         ],
         "@utils/*":[
-            "src/utils/*",
+            "src/utils/*",           
+        ],
+        "@components/*":[
+            "src/components/*",
            
         ]
     },                                      /* Specify a set of entries that re-map imports to additional lookup locations. */
