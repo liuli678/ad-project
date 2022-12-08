@@ -9,6 +9,44 @@ interface IProps extends CardItemType {
  }
 interface IStates { }
 // DataTrend  父组件
+const  data=[
+    {
+      year: '1991',
+      value: 3,
+    },
+    {
+      year: '1992',
+      value: 4,
+    },
+    {
+      year: '1993',
+      value: 3.5,
+    },
+    {
+      year: '1994',
+      value: 5,
+    },
+    {
+      year: '1995',
+      value: 4.9,
+    },
+    {
+      year: '1996',
+      value: 6,
+    },
+    {
+      year: '1997',
+      value: 7,
+    },
+    {
+      year: '1998',
+      value: 9,
+    },
+    {
+      year: '1999',
+      value: 13,
+    },
+  ]
 export default class DataTrend extends Component<IProps, IStates> {
     state = {
         cardData: [
@@ -36,10 +74,50 @@ export default class DataTrend extends Component<IProps, IStates> {
                 icon: 'assets/imgs/card-icon3',
                 isSelected: false,
             }
-        ]
+        ],
+        chartData:[
+            {
+              year: '1991',
+              value: 3,
+            },
+            {
+              year: '1992',
+              value: 4,
+            },
+            {
+              year: '1993',
+              value: 3.5,
+            },
+            {
+              year: '1994',
+              value: 5,
+            },
+            {
+              year: '1995',
+              value: 4.9,
+            },
+            {
+              year: '1996',
+              value: 6,
+            },
+            {
+              year: '1997',
+              value: 7,
+            },
+            {
+              year: '1998',
+              value: 9,
+            },
+            {
+              year: '1999',
+              value: 13,
+            },
+          ]
+
     }
+ 
     handleCardTasChange = (selectedId:string) => {
-        const { cardData } = this.state;
+        const { cardData,chartData } = this.state;
         const newCardData = cardData.map((cardItem: CardItemType) => {
             const tempCardItem = _.cloneDeep(cardItem);
             if (tempCardItem.id===selectedId) {
@@ -49,12 +127,18 @@ export default class DataTrend extends Component<IProps, IStates> {
             }
             return tempCardItem
         });
+        const newChartData = chartData.map((chartItem) => {
+            const tempChartItem = _.cloneDeep(chartItem);
+            tempChartItem.value += 2;
+            return tempChartItem;
+        })
         this.setState({
-            cardData:newCardData
+            cardData: newCardData,
+            chartData:newChartData,
         })
     }
     render() {
-        const { cardData } = this.state
+        const { cardData,chartData } = this.state
         return (
             <div className='data-trend-component-box'>
                 <div className='card-tabs-box'>
@@ -64,7 +148,7 @@ export default class DataTrend extends Component<IProps, IStates> {
                     />
                 </div>
                 <div className='line-chart-box'>
-                    <LineChart></LineChart>
+                    <LineChart chartData={chartData}  />
                 </div>
             </div>
         )
