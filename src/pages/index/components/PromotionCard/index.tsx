@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import ProCardItem from './ProCardItem'
-interface IProps{ }
+interface IProps{
+    history?:Object
+ }
 interface IStates{ }
 const promotionData = [
     {
@@ -38,7 +40,10 @@ const promotionData = [
 
 ]
 export default class PromotionCard extends Component<IProps, IStates> {
-    
+    handleEnder = () => {
+        const { histroy } = this.props;
+        histroy.push('searchProduction')
+    }
     render() {
         return (
             <div>
@@ -53,6 +58,7 @@ export default class PromotionCard extends Component<IProps, IStates> {
                                 btnStatus={Boolean(promotionItem.btnStatus)}
                                 desc={promotionItem.desc}
                                 type={promotionItem.type}
+                                onEnter={this.handleEnder}
                             />
                             
                         )

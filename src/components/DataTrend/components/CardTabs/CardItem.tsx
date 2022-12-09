@@ -4,14 +4,14 @@ import { CardItemType } from './types'
 interface IProps extends CardItemType {
     onClick?: (id: string) => void,
 }
-interface IStates{}
+interface IStates { }
 // 单个按钮封装
 export default class CardItem extends Component<IProps> {
     // 点击不同的卡片
-    handleClick = (id:string) => {
+    handleClick = (id: string) => {
         const { onClick } = this.props;
         if (onClick) {
-            onClick(id); 
+            onClick(id);
         }
     }
     render() {
@@ -22,17 +22,19 @@ export default class CardItem extends Component<IProps> {
         const nameTextStyle = isSelected ? 'name-active' : 'name';
         const presentTextStyle = isSelected ? 'present-active' : 'present';
         const valueTextStyle = isSelected ? 'value-active' : 'value';
-        const iconPath=isSelected ? `${icon}-selected.png`:`${icon}.png`
-    return (
-        <div  className={cardItemStyle}  onClick={() => { this.handleClick(id)}}>
-            <img  className='icon' src={iconPath} alt="" />
-            <div className='info'>
-                <div className='name-present'>
-                    <div className={presentTextStyle}>{`${present}%`}</div>
+        const iconPath = isSelected ? `${icon}-selected.png` : `${icon}.png`
+        return (
+            <div className={cardItemStyle} onClick={() => { this.handleClick(id) }}>
+                <img className='icon' src={iconPath} alt="" />
+                <div className='info'>
+                    <div className='name-present'>
+                        {
+                            present && (<div className={presentTextStyle}>{`${present}%`}</div>)
+                        }
+                    </div>
+                    <div className={valueTextStyle}>{value}</div>
                 </div>
-                <div className={valueTextStyle}>{value}</div>
-            </div> 
-      </div>
-    )
-  }
+            </div>
+        )
+    }
 }

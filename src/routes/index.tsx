@@ -10,6 +10,7 @@ import { renderRoutes } from 'react-router-config';
 import App from '../App';
 import IndexPage from 'pages/index/index';
 import LoginPage from 'pages/login/index';
+import SearchProduction from "pages/searchProduction";
 
 // 路由配置数组
 const allRoutes = [
@@ -23,6 +24,12 @@ const allRoutes = [
         path: '/login',
         exact: false,
         component: LoginPage,
+        title: ''
+    },
+    {
+        path: '/searchProduction ',
+        exact: false,
+        component: SearchProduction ,
         title: ''
     },
 ];

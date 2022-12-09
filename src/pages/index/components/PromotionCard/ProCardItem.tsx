@@ -8,6 +8,7 @@ interface IProps {
     btnStatus: boolean;
     cost?: number;//销售
     budget?: number;//预算
+    onEnter?:()=>void
 
 }
 interface IStates {
@@ -49,6 +50,12 @@ export default class ProCardItem extends Component<IProps, IStates> {
             budgetValue: newValue
         })
     }
+    handelClick = () => {
+        const { onEnter } = this.props;
+        if (onEnter) {
+            onEnter()
+        }
+    }
     render() {
         const { name, desc, type, btnStatus, cost = 0, budget = 0 } = this.props;
         const { editModalShow, budgetOption, budgetValue } = this.state;
@@ -83,7 +90,11 @@ export default class ProCardItem extends Component<IProps, IStates> {
                     btnStatus ? (
 
                         <div className='btn-wrap'>
-                            <Button type='primary' size='small' disabled>进入</Button>
+                            <Button
+                                type={this.context.buttonType}
+                                size='small'
+                                onClick={this.handelClick}
+                            >进入</Button>
                         </div>
                     ) : (<div className='btn-wrap'>
                         <Button type='primary' size='small' disabled>不可申请</Button>
