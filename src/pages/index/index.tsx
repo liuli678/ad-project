@@ -7,15 +7,15 @@ import DataTrend from "@components/DataTrend";
 import PromotionCard from "./components/PromotionCard";
 import ProductCard from "./components/ProductCard";
 import Account from './components/Account';
-import { ThemeContext, ThemeType } from 'context/theme'
+// import { ThemeContext, ThemeType } from 'context/theme'
 import './style.scss';
 const { Option } = Select;
 interface Props extends RouteComponentProps {
     theme: Object;
     history?: Object
 }
-
-class IndexPage extends Component<Props> {
+interface IStates{}
+class IndexPage extends Component<Props,IStates> {
     state = {
         theme: {
             buttonType: 'default'
@@ -48,7 +48,7 @@ class IndexPage extends Component<Props> {
         const { theme } = this.state;
         const { history } = this.props;
         return (
-            <ThemeContext.Provider value={theme}>
+            // <ThemeContext.Provider value={theme}>
 
                 <div className="index-page">
                     <div className="header-box">
@@ -100,7 +100,7 @@ class IndexPage extends Component<Props> {
                         footer
                     </div>
                 </div>
-            </ThemeContext.Provider>
+            // </ThemeContext.Provider>
 
 
 

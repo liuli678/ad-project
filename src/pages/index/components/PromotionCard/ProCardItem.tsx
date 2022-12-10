@@ -8,7 +8,8 @@ interface IProps {
     btnStatus: boolean;
     cost?: number;//销售
     budget?: number;//预算
-    onEnter?:()=>void
+    onEnter?: () => void;
+    history:object
 
 }
 interface IStates {

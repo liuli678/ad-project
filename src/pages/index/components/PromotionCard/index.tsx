@@ -41,8 +41,8 @@ const promotionData = [
 ]
 export default class PromotionCard extends Component<IProps, IStates> {
     handleEnder = () => {
-        const { histroy } = this.props;
-        histroy.push('searchProduction')
+        const { history } = this.props;
+        history.push('searchProduction')
     }
     render() {
         return (
