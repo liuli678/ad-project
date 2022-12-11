@@ -50,6 +50,7 @@
     "antd": "^4.6.3",
     "axios": "^1.2.0",
     "dayjs": "^1.11.6",
+    "fork-ts-checker-webpack-plugin": "^7.2.13",
     "loadsh": "^0.0.4",
     "lodash": "^4.17.21",
     "mini-css-extract-plugin": "^2.7.1",

@@ -38,14 +38,14 @@ const webpackBaseConfig = {
             },
             {
                 test: /\.tsx?$/,
-                use: 'ts-loader'
+                use: 'ts-loader',
                 // 性能提升配置
-                // use: {
-                //     loader: 'ts-loader',
-                //     options: {
-                //         transpileOnly:true
-                //     }
-                // },
+                use: {
+                    loader: 'ts-loader',
+                    options: {
+                        transpileOnly:true
+                    }
+                },
             },
             {
                 test: /\.(sc|c)ss/,

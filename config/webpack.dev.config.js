@@ -6,6 +6,8 @@ const OpenBrowserPlugin = require('open-browser-webpack4-plugin');
 // 获取html打包插件
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpackConfigBase = require('./webpack.base.config');
+// 引入优化ts-loader
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 // 引入中间件
 const mockMiddleware = require('./mock.config');
 // 引入检测性能的包
@@ -36,6 +38,10 @@ const webpackConfigDev = {
         new OpenBrowserPlugin({
             url: `http://localhost:${PORT}/#/`,
         }),
+        // 优化ts-loader
+        new ForkTsCheckerWebpackPlugin({
+          
+        })
 
     ],
     devtool: 'eval-source-map',
@@ -52,13 +58,14 @@ const webpackConfigDev = {
         hot: false,
         host: '0.0.0.0',
         port: PORT,
-        // before(app) {
-        //     const projectDir = path.resolve();
-        //     const mockDir = './mock';
-        //     app.use(mockMiddleware({ projectDir, mockDir }))
-        // }
+        before(app) {
+            const projectDir = path.resolve();
+            const mockDir = './mock';
+            app.use(mockMiddleware({ projectDir, mockDir }))
+        }
     }
 
 }
 // 合并导出
-module.exports = smp.wrap(merge(webpackConfigBase, webpackConfigDev))
+// module.exports = smp.wrap(merge(webpackConfigBase, webpackConfigDev))
+module.exports = merge(webpackConfigBase, webpackConfigDev)
