@@ -1,21 +1,25 @@
 import React, { Component } from "react";
 import axios from 'axios';
-import {Select,DatePicker} from 'antd'
+import { Select, DatePicker } from 'antd';
+import { SettingOutlined } from '@ant-design/icons'
+import { ThemeContext, ThemeType } from '@context/theme'
 import { RouteComponentProps } from 'react-router-dom';
 import TheHeader from "@components/TheHeader";
 import DataTrend from "@components/DataTrend";
 import PromotionCard from "./components/PromotionCard";
 import ProductCard from "./components/ProductCard";
 import Account from './components/Account';
-// import { ThemeContext, ThemeType } from 'context/theme'
+import Footer from "@components/Footer";
 import './style.scss';
 const { Option } = Select;
 interface Props extends RouteComponentProps {
-    theme: Object;
-    history?: Object
+    history?: any
 }
-interface IStates{}
-class IndexPage extends Component<Props,IStates> {
+interface IStates {
+    //对theme进行定义属性类型
+    theme: ThemeType
+}
+class IndexPage extends Component<Props, IStates> {
     state = {
         theme: {
             buttonType: 'default'
@@ -35,6 +39,7 @@ class IndexPage extends Component<Props,IStates> {
     //     console.log('data改变',moment(data).unix() )
 
     // }
+    // 动态切换按钮逻辑实现
     handleContextChange = () => {
         const { theme } = this.state;
         const newButtonType = theme.buttonType === 'primary' ? 'default' : 'primary';
@@ -48,7 +53,7 @@ class IndexPage extends Component<Props,IStates> {
         const { theme } = this.state;
         const { history } = this.props;
         return (
-            // <ThemeContext.Provider value={theme}>
+            <ThemeContext.Provider value={theme}>
 
                 <div className="index-page">
                     <div className="header-box">
@@ -73,7 +78,7 @@ class IndexPage extends Component<Props,IStates> {
                                 />
                             </div>
                         </div>
-                        <TheHeader></TheHeader>
+                        <TheHeader history={history}></TheHeader>
                     </div>
                     <div className="content-box">
                         <div className="left-content">
@@ -90,17 +95,23 @@ class IndexPage extends Component<Props,IStates> {
                         </div>
                         <div className="right-content">
                             <div className="account-area">
-                                <Account></Account>
+                                <Account />
                             </div>
                             <div className="index-banner-area">promotion-card</div>
                             <div className="product-news-area">product-car</div>
                         </div>
                     </div>
                     <div className="footer-box">
-                        footer
+                        <Footer />
+                        <div className="setting-btn">
+                            <SettingOutlined
+                                style={{ fontSize: 36, color: '#326fff' }}
+                                onClick={this.handleContextChange}
+                            />
+                        </div>
                     </div>
                 </div>
-            // </ThemeContext.Provider>
+            </ThemeContext.Provider>
 
 
 

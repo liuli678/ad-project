@@ -88,13 +88,13 @@ export const MENU_INDEX_CONFIG = [
         name: '首页',
         menuChildren: [],
         isActive: true,
-        url:''
+        url:'/index'
     },
     {
         name: '数据中心',
         menuChildren: [],
         isActive: false,
-        url: '',
+        url: '/searchProduction',
     },
     {
         name: '慕课大学',

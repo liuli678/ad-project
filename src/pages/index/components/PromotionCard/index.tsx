@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import ProCardItem from './ProCardItem'
 interface IProps{
-    history?:Object
+    history?: any
+    onChange?:()=>void
  }
 interface IStates{ }
 const promotionData = [

@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
-import {Button} from 'antd'
-interface IProps { }
+import { Button } from 'antd';
+import { ThemeContext,ThemeType } from '@context/theme';
+interface IProps { 
+    // theme:ThemeType
+}
 interface IStates {
     status: number;
     balance: number;
     creditValue: number;
 }
-export default class Account extends Component<IProps, IStates> {
+class Account extends Component<IProps, IStates> {
     state = {
         status: 0, //0 表示账户金额未到 1表示已到
         balance: 0,
@@ -21,9 +24,14 @@ export default class Account extends Component<IProps, IStates> {
             creditValue: 780
           }) 
        },2000)
-   }
+     }
+     //子组件中使用context,给contextType赋值后就可以使用
+    //  static contextType = ThemeContext;
     render() {
         const { status, balance, creditValue } = this.state;
+        const  buttonType  = this.context;
+        // console.log('theme',theme);
+        
         return (
             <div className='account-component-box'>
                 <div>你好 上古棚</div>
@@ -49,3 +57,7 @@ export default class Account extends Component<IProps, IStates> {
         )
     }
 }
+
+//子组件中使用context,给contextType赋值后就可以使用
+Account.contextType = ThemeContext;
+export default Account;

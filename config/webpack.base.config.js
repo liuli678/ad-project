@@ -19,9 +19,11 @@ const webpackBaseConfig = {
         // 配置路径的别名  
         alias: {
             // pages的页面可以加一些前缀
-            pages: path.join(__dirname, '../src/pages'),
+            'pages': path.join(__dirname, '../src/pages'),
+            '@common': path.join(__dirname, '../src/common'),
             '@utils': path.join(__dirname, '../src/utils'),
-            '@components':path.join(__dirname,'../src/components')
+            '@components': path.join(__dirname, '../src/components'),
+            '@context':path.join(__dirname,'../src/context')
         }
 
     },

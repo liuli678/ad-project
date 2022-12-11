@@ -4,11 +4,21 @@ import {UserOutlined} from '@ant-design/icons'
 import { MENU_INDEX_CONFIG } from '../../common/constants/menu'
 import MenuItem from './MenuItem';
 
-interface IProps { }
+interface IProps {
+    history?: any;
+    onClick?:(url:string)=>void
+}
 interface IStates { }
 
 class TheHeader extends React.Component<IProps, IStates> {
     state = {}
+    // 首页跳转对应的url
+    handleClick = (url:string) => {
+        const { history } = this.props;
+        if (history) {
+            history.push(url)
+       }
+    }
     render() {
         const userName='小青青'
         return (
@@ -21,7 +31,8 @@ class TheHeader extends React.Component<IProps, IStates> {
                                 <MenuItem
                                     menuItemInfo={menuItem}
                                     isActive={MenuItem.isActive}
-                                    key={`menu-Child${index.toString()}`}   
+                                    key={`menu-Child${index.toString()}`}  
+                                    onClick={(url:string)=>{this.handleClick(url)}}
                                 />
                             ))
                         }   

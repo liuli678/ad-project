@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { EditOutlined } from '@ant-design/icons';
 import { Button, Modal, Radio, InputNumber } from 'antd';
+import { ThemeContext,ThemeType } from '@context/theme';
 interface IProps {
     name: string;
     desc: string;
@@ -9,7 +10,8 @@ interface IProps {
     cost?: number;//销售
     budget?: number;//预算
     onEnter?: () => void;
-    history:object
+    onChange?: (newValue:any) => void;
+    history?:any
 
 }
 interface IStates {
@@ -92,7 +94,7 @@ export default class ProCardItem extends Component<IProps, IStates> {
 
                         <div className='btn-wrap'>
                             <Button
-                                type={this.context.buttonType}
+                                // type={this.context.buttonType}
                                 size='small'
                                 onClick={this.handelClick}
                             >进入</Button>
@@ -128,7 +130,8 @@ export default class ProCardItem extends Component<IProps, IStates> {
                                     min={1}
                                     max={100000}
                                     defaultValue={budgetValue}
-                                    onChange={(newValue) =>{this.handleBudgetChange(newValue)}} />
+                                    // onChange={(newValue: number) => { this.handleBudgetChange(newValue) }}
+                                />
                                 <span className='unit'>元</span>
                                 <span className='hint'>为了保证您的推广效果，每日预算需&gt;50 元</span>
                             </div>

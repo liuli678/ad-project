@@ -40,7 +40,10 @@
             "alias":{
                 "map":[
                     ["pages","./src/pages"],
-                    ["@utils","./src/utils"]
+                    ["@common","./src/common"],
+                    ["@utils","./src/utils"],
+                    ["@components","./src/components"],
+                    ["@context","./src/context"]
                 ],
                 "extensions":[".ts",".tsx",".js",".jsx",".json",".d.ts"]
             }

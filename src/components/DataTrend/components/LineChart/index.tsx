@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Line } from '@ant-design/charts';
+import { CardItemType } from '@components/DataTrend/components/CardTabs/types';
 
 
 interface IProps { 
-    chartData:any[]
+    chartData:any
 }
 
 interface IStates {
@@ -27,7 +28,7 @@ export default class LineChart extends Component<IProps, IStates> {
               visible: true,
               text: '自定义配置趋势线上数据点的样式',
             },
-            padding: 'auto',
+            // padding: 'auto',
             forceFit: true,
             data:chartData,
             xField: 'year',
@@ -49,8 +50,8 @@ export default class LineChart extends Component<IProps, IStates> {
           }
         return (
             
-            <div className='line-chart-component-box'>
-                < Line  {...chartConfig} />
+              <div className='line-chart-component-box'>
+               < Line   {...chartConfig} />
             </div>
         )
     }

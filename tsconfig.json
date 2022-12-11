@@ -37,8 +37,15 @@
         "@utils/*":[
             "src/utils/*",           
         ],
+        "@common/*":[
+            "src/common/*",           
+        ],
         "@components/*":[
             "src/components/*",
+           
+        ],
+        "@context/*":[
+            "src/context/*",
            
         ]
     },                                      /* Specify a set of entries that re-map imports to additional lookup locations. */

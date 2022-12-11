@@ -27,7 +27,7 @@ const allRoutes = [
         title: ''
     },
     {
-        path: '/searchProduction ',
+        path: '/searchProduction',
         exact: false,
         component: SearchProduction ,
         title: ''

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import  TheHeader  from '@components/TheHeader';
+import TheHeader from '@components/TheHeader';
+import Footer from '@components/Footer';
 import Account from './components/Account';
 import DataTrend from '@components/DataTrend';
 // import  DataTrend  from './components/DataTrend';
-import  UserPortrait  from './components/UserPortrait';
+import UserPortrait from './components/UserPortrait';
 import WaveAnalysis from './components/WaveAnalysis';
-const cardData=[
+const cardData = [
     {
         id: '1',
         name: '消费(元)',
@@ -48,14 +49,17 @@ const cardData=[
         isSelected: false,
     }
 ]
-interface IProps extends RouteComponentProps { }
+interface IProps  {
+    history?:any
+ }
 interface IStates { }
 export default class SearchProduction extends Component<IProps, IStates> {
     render() {
+        const { history} = this.props;
         return (
             <div className='search-promotion-box'>
                 <div className='header'>
-                <TheHeader />
+                    <TheHeader history={history} />
                 </div>
                 <div className='content'>
                     <div className="account-box">
@@ -67,15 +71,17 @@ export default class SearchProduction extends Component<IProps, IStates> {
 
                     </div>
                     <div className="wave-analysis-box">
-                    <WaveAnalysis />
-                    
+                        <div className='title'>波动分析</div>
+                        <WaveAnalysis />
+
                     </div>
                     <div className="user-portrait-box">
+                        <div className='title'>用户画像</div>
                         <UserPortrait />
                     </div>
                 </div>
                 <div className='footer'>
-
+                    <Footer />
                 </div>
             </div>
         )

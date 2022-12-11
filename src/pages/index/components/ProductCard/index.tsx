@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MARKETSERVICE_CONFIG from 'src/common/constants/productService';
+import  MARKETSERVICE_CONFIG  from '@common/constants/productService';
 interface IProps{ }
 interface IStates{}
 export default class ProductCard extends Component<IProps, IStates> {
