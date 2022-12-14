@@ -48,10 +48,10 @@ const webpackConfigDev = {
     // 配置mock
     devServer: {
         // 远程mock
-        // proxy: {
-        //     // 代理yapi的服务地址
-        //     '/':'http://127.0.0.1:3000/mock/11',
-        // },
+        proxy: {
+            // 代理yapi的服务地址
+            '/':'http://127.0.0.1:3000/mock/11',
+        },
         // 配置基础路径
         contentBase: path.join(__dirname, '.'),
         historyApiFallback: false,

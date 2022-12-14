@@ -1,7 +1,11 @@
 import React, { Component } from "react";
+//使用状态机引入provider组件
+import { Provider } from "react-redux";
 import axios from 'axios';
 import { Select, DatePicker } from 'antd';
-import { SettingOutlined } from '@ant-design/icons'
+import { SettingOutlined } from '@ant-design/icons';
+//引入store
+import store from "@store/index";
 import { ThemeContext, ThemeType } from '@context/theme'
 import { RouteComponentProps } from 'react-router-dom';
 import TheHeader from "@components/TheHeader";
@@ -10,6 +14,7 @@ import PromotionCard from "./components/PromotionCard";
 import ProductCard from "./components/ProductCard";
 import Account from './components/Account';
 import Footer from "@components/Footer";
+
 import './style.scss';
 const { Option } = Select;
 interface Props extends RouteComponentProps {
@@ -53,8 +58,8 @@ class IndexPage extends Component<Props, IStates> {
         const { theme } = this.state;
         const { history } = this.props;
         return (
-            <ThemeContext.Provider value={theme}>
-
+            // <ThemeContext.Provider value={theme}>
+            <Provider store={store}>
                 <div className="index-page">
                     <div className="header-box">
                         <div className='Header-box'>
@@ -95,7 +100,7 @@ class IndexPage extends Component<Props, IStates> {
                         </div>
                         <div className="right-content">
                             <div className="account-area">
-                                <Account />
+                                <Account fetchBalance={undefined} />
                             </div>
                             <div className="index-banner-area">promotion-card</div>
                             <div className="product-news-area">product-car</div>
@@ -111,9 +116,9 @@ class IndexPage extends Component<Props, IStates> {
                         </div>
                     </div>
                 </div>
-            </ThemeContext.Provider>
+                {/* </ThemeContext.Provider> */}
 
-
+            </Provider>
 
 
 
