@@ -7,6 +7,8 @@ import DataTrend from '@components/DataTrend';
 // import  DataTrend  from './components/DataTrend';
 import UserPortrait from './components/UserPortrait';
 import WaveAnalysis from './components/WaveAnalysis';
+//使用hook组件，先将autoModal组件引入到父组件
+import AutoModal from './components/AutoModal'
 const cardData = [
     {
         id: '1',
@@ -54,7 +56,18 @@ interface IProps  {
  }
 interface IStates { }
 export default class SearchProduction extends Component<IProps, IStates> {
+    // 父组件设置弹窗是否展示的默认值 
+    state = {
+       autoModalShow:true 
+    }
+    // 父组件中设置点击modal进行处理
+    handleAutoModalClick = (type:number,values?:any) => {
+        this.setState({
+            autoModalShow:false 
+        })
+    }
     render() {
+        const { autoModalShow } = this.state;
         const { history} = this.props;
         return (
             <div className='search-promotion-box'>
@@ -83,6 +96,10 @@ export default class SearchProduction extends Component<IProps, IStates> {
                 <div className='footer'>
                     <Footer />
                 </div>
+                <AutoModal
+                    visible={autoModalShow}
+                    onBtnClick={this.handleAutoModalClick}
+                />
             </div>
         )
     }
