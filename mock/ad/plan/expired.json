@@ -1,0 +1,16 @@
+{
+    "code":0,
+    "msg":"success",
+    "data":[
+        {
+            "key": "1",
+            "sort": 1,
+            "playName": "剖析react颞部运行机制推广",
+            "showChangeNum": 32,
+            "showChangeRatio": 66,
+            "currentShow": 121,
+            "contemporaryShow": 125,
+            "operation": "暂停推广"
+        }
+    ]
+}

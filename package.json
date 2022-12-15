@@ -54,6 +54,8 @@
     "fork-ts-checker-webpack-plugin": "^7.2.13",
     "lodash": "^4.17.21",
     "mini-css-extract-plugin": "^2.7.1",
+    "mobx": "^6.7.0",
+    "mobx-react": "^7.6.0",
     "moment": "^2.29.4",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

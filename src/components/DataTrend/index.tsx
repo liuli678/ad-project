@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+//引入observer,inject
+import { observer, inject } from 'mobx-react';
 import { CardItemType } from '../DataTrend/components/CardTabs/types';
 import CardTabs from './components/CardTabs';
 import LineChart from './components/LineChart';
@@ -30,7 +32,10 @@ const defaultCardData=[
     }
 ]
 interface IProps {
-    cardData?:any
+    cardData?: any,
+    store?: any,
+    dataTrendData?: any,
+    globalStore?:any
  }
 interface IStates { }
 // DataTrend  父组件
@@ -71,7 +76,11 @@ const  data=[
       year: '1999',
       value: 13,
     },
-  ]
+]
+// inject是将当前的组件注入进去,注意：store要和父组件的store一一对应
+@inject('store','globalStore')
+// observer将当前的组件设置为观察者
+@observer
 export default class DataTrend extends Component<IProps, IStates> {
     state = {
         cardData: this.props.cardData || defaultCardData,
@@ -115,7 +124,13 @@ export default class DataTrend extends Component<IProps, IStates> {
           ]
 
     }
- 
+//  使用接口对图表数据进行 请求
+    componentWillMount(): void {
+        const { store, globalStore } = this.props;
+        console.log('globalStore',globalStore.isKAAccount);
+        
+        store.getChartData()
+    }
     handleCardTasChange = (selectedId:string) => {
         const { cardData,chartData } = this.state;
         const newCardData = cardData.map((cardItem: CardItemType) => {
@@ -138,7 +153,10 @@ export default class DataTrend extends Component<IProps, IStates> {
         })
     }
     render() {
-        const { cardData,chartData } = this.state
+        const { cardData, chartData } = this.state;
+        //获取dataTrendData
+        const { store } = this.props;
+        const { dataTrendData = [] } = store;
         return (
             <div className='data-trend-component-box'>
                 
@@ -149,7 +167,10 @@ export default class DataTrend extends Component<IProps, IStates> {
                     />
                 </div>
                 <div className='line-chart-box'>
-                    <LineChart chartData={chartData}  />
+                    <LineChart
+                      chartData={dataTrendData}  
+                        // chartData={chartData}
+                    />
                 </div>
             </div>
         )

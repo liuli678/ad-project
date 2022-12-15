@@ -29,9 +29,9 @@ function importAll(r: any,moudleType:string) {
     });
 }
 // @ts-ignore忽略
-importAll(require.context('./', true, /reducer\.ts$/,'reducer'))
-// @ts-ignore忽略
-importAll(require.context('./', true, /saga\.ts$/, 'saga'));
+// importAll(require.context('./', true, /reducer\.ts$/,'reducer'))
+// // @ts-ignore忽略
+// importAll(require.context('./', true, /saga\.ts$/, 'saga'));
 //创建reducer
 const rootReducer = combineReducers(allReducers);
 //创建saga
